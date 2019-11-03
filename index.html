@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="./favicon.png"/>
+
+    <title>Red Dead Redemption II Collector Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+    <script src="assets/js/leaflet.awesome-markers.min.js"></script>
+    <link rel="stylesheet" href="assets/css/leaflet.awesome-markers.css" />
+    <link rel="stylesheet" href="assets/css/styles.css?nocache=22" />
+
+</head>
+<body onload="init()">
+<div class="side-menu menu-opened">
+    <h2>devtool</h2>
+    <div class="input-container">
+        <label for="categories">Category</label>
+        <select class="input-day" id="categories">
+            <option value="random"                  >random</option>
+            <option value="card-cups"               >card-cups</option>
+            <option value="card-swords"             >card-swords</option>
+            <option value="card-wands"              >card-wands</option>
+            <option value="card-pentacles"          >card-pentacles</option>
+            <option value="coin"                    >coin</option>
+            <option value="bird-eggs"               >bird-eggs</option>
+            <option value="antique-bottles"         >antique-bottles</option>
+            <option value="arrowhead"               >arrowhead</option>
+            <option value="family-heirlooms"        >family-heirlooms</option>
+            <option value="american-flowers"        >american-flowers</option>
+            <option value="lost-ring"               >lost-ring</option>
+            <option value="lost-necklaces"          >lost-necklaces</option>
+            <option value="lost-earrings"           >lost-earrings</option>
+            <option value="lost-bracelet"           >lost-bracelet</option>
+        </select>
+    </div>
+
+    <div class="item-container">
+        <label >item_id_#</label>
+        <input class="input-search" type="text" id="item-id" autocomplete="on">
+    </div>
+
+    <div class="item-container">
+        <label >item name</label>
+        <input class="input-search" type="text" id="item-name" autocomplete="on">
+    </div>
+
+    <div class="input-container">
+        <label for="day">Day</label>
+        <input id="day" class="input-day" type="number" min="1" max="4">
+    </div>
+
+    <div class="input-container">
+        <label for="tools" >Tool type</label>
+        <select class="input-day" id="tools">
+            <option value="0" >No tools</option>
+            <option value="1" >Shovel</option>
+            <option value="2" >Metal detector</option>
+            <option value="3" >All</option>
+        </select>
+    </div>
+
+
+    <div class="lat-container">
+        <label >lat</label>
+        <input class="input-search" type="text" id="latitude">
+        <label >lng</label>
+        <input class="input-search" type="text" id="longitude">
+    </div>
+    <br>
+    <div class="desc-container">
+        <label>Description</label>
+        <textarea style="resize: vertical;"class="input-search" id="desc" rows="4" cols="50" placeholder=""></textarea>
+    </div>
+
+
+    <div class="hide-show-container">
+        <a href="javascript:void(0);" onclick="Map.placeMarker()">Place Marker</a>
+    </div>
+    
+
+    <div class="desc-container">
+        <label>Items Json</label>
+        <textarea style="resize: vertical;"class="input-search" id="item-json" rows="4" cols="50" placeholder=""></textarea>
+    </div>
+    <div class="hide-show-container">
+        <a href="javascript:void(0);" onclick="downloadObjectAsJson(markers, 'random-items')">save Items to json</a>
+    </div>
+
+    <div class="desc-container">
+        <label>Items lang</label>
+        <textarea style="resize: vertical;"class="input-search" id="item-lang" rows="4" cols="50" placeholder=""></textarea>
+    </div>
+    <div class="hide-show-container">
+        <a href="javascript:void(0);" onclick="downloadObjectAsJson(langData, 'random-items-lang')">save descriptions to lang json</a>
+    </div>
+    <!-- {"text": "cups_ace", "day": "1", "tool": "0", "icon": "card-cups", "x": "-26.421875", "y": "90.65625"}, -->
+
+    <br>
+</div>
+
+<div id="map"></div>
+
+<div class="lat-lng-container"><p></p><button id="lat-lng-container-close-button">×</button></div>
+<script      src="assets/js/map.js?nocache=23"></script>
+<script src="assets/js/language.js?nocache=23"></script>
+<script     src="assets/js/menu.js?nocache=23"></script>
+<script   src="assets/js/routes.js?nocache=23"></script>
+<script  src="assets/js/scripts.js?nocache=23"></script>
+
+</body>
+</html>
